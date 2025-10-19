@@ -1,6 +1,8 @@
 // Canvas LMS API Client
-// Base URL for Canvas instance - using local proxy to avoid CORS issues
-const CANVAS_BASE_URL = 'http://localhost:3001/canvas-api';
+// Base URL for Canvas instance - using proxy to avoid CORS issues
+const CANVAS_BASE_URL = import.meta.env.VITE_API_BASE
+  ? `${import.meta.env.VITE_API_BASE}/canvas-api`
+  : 'https://main.dqvvdigpb796o.amplifyapp.com/canvas-api';
 
 // Types for Canvas API responses
 export interface CanvasCourse {

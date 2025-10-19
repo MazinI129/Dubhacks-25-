@@ -69,9 +69,10 @@ export default function Dashboard({ user, canvasToken, onLogout }: DashboardProp
     setError(null);
 
     try {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
       // Fetch courses
       const coursesRes = await fetch(
-        'http://localhost:3001/canvas-api/courses?enrollment_state=active&per_page=100',
+        `${API_BASE}/canvas-api/courses?enrollment_state=active&per_page=100`,
         {
           headers: { Authorization: `Bearer ${canvasToken}` },
         }
@@ -82,9 +83,10 @@ export default function Dashboard({ user, canvasToken, onLogout }: DashboardProp
       setCourses(coursesData);
 
       // Fetch assignments for all courses in parallel
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
       const assignmentPromises = coursesData.map((course: Course) =>
         fetch(
-          `http://localhost:3001/canvas-api/courses/${course.id}/assignments?per_page=100&order_by=due_at`,
+          `${API_BASE}/canvas-api/courses/${course.id}/assignments?per_page=100&order_by=due_at`,
           {
             headers: { Authorization: `Bearer ${canvasToken}` },
           }

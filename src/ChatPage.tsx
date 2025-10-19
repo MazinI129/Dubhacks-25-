@@ -80,7 +80,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ user }) => {
         text: m.text,
       }));
 
-      const base = (import.meta as any)?.env?.VITE_API_BASE || "http://localhost:3001";
+      const base = (import.meta as any)?.env?.VITE_API_BASE || "https://main.dqvvdigpb796o.amplifyapp.com";
       const resp = await fetch(`${base}/ai/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

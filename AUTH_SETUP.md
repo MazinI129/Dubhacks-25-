@@ -20,6 +20,7 @@ npm install
 6. Authorized JavaScript origins:
    ```
    http://localhost:5173
+   https://main.dqvvdigpb796o.amplifyapp.com
    ```
 7. Copy the Client ID
 
@@ -45,6 +46,9 @@ Edit `.env`:
 # Google OAuth2
 VITE_GOOGLE_CLIENT_ID=your_actual_google_client_id
 
+# API Base URL (for production deployment)
+VITE_API_BASE=https://main.dqvvdigpb796o.amplifyapp.com
+
 # S3 Configuration (Amplify-compatible)
 APP_AWS_REGION=us-east-1
 S3_BUCKET_NAME=snapsyllabus-content
@@ -54,7 +58,7 @@ APP_AWS_SECRET_ACCESS_KEY=your_actual_aws_secret
 
 ### 5. Run the App
 
-You need **3 terminals**:
+**For local development**, you need **3 terminals**:
 
 ```bash
 # Terminal 1: Vite dev server
@@ -68,6 +72,8 @@ npm run auth
 ```
 
 Then open: http://localhost:5173/
+
+**For production**, the app is deployed at: https://main.dqvvdigpb796o.amplifyapp.com
 
 ## Authentication Flow
 
@@ -202,7 +208,7 @@ await S3Storage.saveContent('user_123', 'chat-history', 'session_789.json', chat
 
 ### "Google sign in failed"
 - Check GOOGLE_CLIENT_ID in `.env`
-- Verify `http://localhost:5173` is in authorized origins
+- Verify both `http://localhost:5173` and `https://main.dqvvdigpb796o.amplifyapp.com` are in authorized origins
 
 ### "Failed to connect to auth server"
 - Make sure `npm run auth` is running

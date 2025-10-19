@@ -51,7 +51,8 @@ export default function CanvasSetup({ sessionId, onSetupComplete }: CanvasSetupP
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3001/auth/setup-canvas', {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
+      const response = await fetch(`${API_BASE}/auth/setup-canvas`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId, canvasToken }),

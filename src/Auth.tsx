@@ -19,7 +19,8 @@ export default function Auth({ onAuthSuccess }: AuthProps) {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:3001/auth/google', {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
+      const response = await fetch(`${API_BASE}/auth/google`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ credential: credentialResponse.credential }),
@@ -43,7 +44,8 @@ export default function Auth({ onAuthSuccess }: AuthProps) {
     const body = isSignup ? { email, password, name } : { email, password };
 
     try {
-      const response = await fetch(`http://localhost:3001${endpoint}`, {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
+      const response = await fetch(`${API_BASE}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

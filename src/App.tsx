@@ -45,7 +45,8 @@ export default function App() {
   useEffect(() => {
     const savedSessionId = localStorage.getItem('sessionId');
     if (savedSessionId) {
-      fetch('http://localhost:3001/auth/session', {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
+      fetch(`${API_BASE}/auth/session`, {
         headers: { Authorization: `Bearer ${savedSessionId}` },
       })
         .then(res => res.json())
@@ -84,7 +85,8 @@ export default function App() {
 
   const handleLogout = () => {
     if (sessionId) {
-      fetch('http://localhost:3001/auth/logout', {
+      const API_BASE = import.meta.env.VITE_API_BASE || 'https://main.dqvvdigpb796o.amplifyapp.com';
+      fetch(`${API_BASE}/auth/logout`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${sessionId}` },
       }).catch(() => {});

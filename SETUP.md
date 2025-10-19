@@ -19,8 +19,9 @@ S3_BUCKET_NAME=dubhacks25-bucket
 # Google OAuth
 GOOGLE_CLIENT_ID=your_google_client_id_here
 
-# Vite Frontend (for Google OAuth)
+# Vite Frontend (for Google OAuth and API endpoint)
 VITE_GOOGLE_CLIENT_ID=your_google_client_id_here
+VITE_API_BASE=https://main.dqvvdigpb796o.amplifyapp.com
 ```
 
 ### 3. Run the Application
@@ -30,8 +31,8 @@ npm run dev
 ```
 
 This will start:
-- **Frontend (Vite):** http://localhost:5173
-- **Backend (Express):** http://localhost:3001
+- **Frontend (Vite):** http://localhost:5173 (or deployed on Amplify: https://main.dqvvdigpb796o.amplifyapp.com)
+- **Backend (Express):** http://localhost:3001 (or deployed on Amplify: https://main.dqvvdigpb796o.amplifyapp.com)
 
 ## Available Scripts
 
