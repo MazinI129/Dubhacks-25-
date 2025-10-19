@@ -10,8 +10,10 @@ npm install
 ### 2. Environment Setup
 Create a `.env` file in the root directory with the following variables:
 ```env
-# AWS S3 Configuration
-AWS_REGION=us-east-2
+# S3 Configuration (Amplify-compatible)
+APP_AWS_REGION=us-east-2
+APP_AWS_ACCESS_KEY_ID=your_aws_access_key_id
+APP_AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
 S3_BUCKET_NAME=dubhacks25-bucket
 
 # Google OAuth

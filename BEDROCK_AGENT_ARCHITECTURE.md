@@ -1574,8 +1574,8 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { BedrockAgentRuntimeClient, InvokeAgentCommand } from '@aws-sdk/client-bedrock-agent-runtime';
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 
-const bedrockClient = new BedrockAgentRuntimeClient({ region: process.env.AWS_REGION });
-const s3Client = new S3Client({ region: process.env.AWS_REGION });
+const bedrockClient = new BedrockAgentRuntimeClient({ region: process.env.APP_AWS_REGION });
+const s3Client = new S3Client({ region: process.env.APP_AWS_REGION });
 
 interface ChatRequest {
   message: string;
@@ -1819,7 +1819,7 @@ export class CourseCompanionStack extends cdk.Stack {
         BEDROCK_AGENT_ID: agent.attrAgentId,
         BEDROCK_AGENT_ALIAS_ID: 'TSTALIASID',
         CONVERSATION_BUCKET: conversationBucket.bucketName,
-        AWS_REGION: this.region
+        APP_AWS_REGION: this.region
       }
     });
 

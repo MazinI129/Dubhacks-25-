@@ -2,7 +2,7 @@
 import { S3Client, PutObjectCommand, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION || 'us-east-1',
+  region: process.env.APP_AWS_REGION || 'us-east-1',
 });
 
 const BUCKET_NAME = process.env.S3_BUCKET_NAME || 'snapsyllabus-content';

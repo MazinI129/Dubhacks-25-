@@ -154,7 +154,7 @@ aws bedrock list-foundation-models --region us-east-2 | grep claude
 
 Create `.env` file:
 ```bash
-AWS_REGION=us-east-2
+APP_AWS_REGION=us-east-2
 BEDROCK_AGENT_NAME=CourseCompanion-TeachingAssistant
 CANVAS_API_BASE_URL=https://canvas.instructure.com/api/v1
 S3_BUCKET_PREFIX=coursecompanion
@@ -1023,8 +1023,8 @@ import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3
 import { v4 as uuidv4 } from 'uuid';
 import { ChatRequest, ChatResponse, ConversationHistory, Citation } from '../shared/types';
 
-const bedrockClient = new BedrockAgentRuntimeClient({ region: process.env.AWS_REGION || 'us-east-2' });
-const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-2' });
+const bedrockClient = new BedrockAgentRuntimeClient({ region: process.env.APP_AWS_REGION || 'us-east-2' });
+const s3Client = new S3Client({ region: process.env.APP_AWS_REGION || 'us-east-2' });
 
 const AGENT_ID = process.env.BEDROCK_AGENT_ID!;
 const AGENT_ALIAS_ID = process.env.BEDROCK_AGENT_ALIAS_ID!;
@@ -1252,7 +1252,7 @@ const chatHandlerLambda = new lambda.Function(this, 'ChatHandler', {
     BEDROCK_AGENT_ID: this.agent.attrAgentId,
     BEDROCK_AGENT_ALIAS_ID: 'YOUR_ALIAS_ID', // Update after creating alias
     CONVERSATION_BUCKET: this.conversationBucket.bucketName,
-    AWS_REGION: this.region
+    APP_AWS_REGION: this.region
   }
 });
 

@@ -45,11 +45,11 @@ Edit `.env`:
 # Google OAuth2
 VITE_GOOGLE_CLIENT_ID=your_actual_google_client_id
 
-# AWS S3
-AWS_REGION=us-east-1
+# S3 Configuration (Amplify-compatible)
+APP_AWS_REGION=us-east-1
 S3_BUCKET_NAME=snapsyllabus-content
-AWS_ACCESS_KEY_ID=your_actual_aws_key
-AWS_SECRET_ACCESS_KEY=your_actual_aws_secret
+APP_AWS_ACCESS_KEY_ID=your_actual_aws_key
+APP_AWS_SECRET_ACCESS_KEY=your_actual_aws_secret
 ```
 
 ### 5. Run the App

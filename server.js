@@ -14,7 +14,7 @@ app.use(express.json());
 
 // === Bedrock client ===
 const bedrock = new BedrockRuntimeClient({
-  region: process.env.BEDROCK_REGION || process.env.AWS_REGION || 'us-east-1',
+  region: process.env.BEDROCK_REGION || process.env.APP_AWS_REGION || 'us-east-1',
 });
 
 // Google OAuth2 client
@@ -165,7 +165,7 @@ app.post('/auth/login', async (req, res) => {
     // List all objects in users/ prefix to find all user profiles
     const { ListObjectsV2Command } = await import('@aws-sdk/client-s3');
     const { S3Client } = await import('@aws-sdk/client-s3');
-    const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-2' });
+    const s3Client = new S3Client({ region: process.env.APP_AWS_REGION || 'us-east-2' });
 
     const response = await s3Client.send(new ListObjectsV2Command({
       Bucket: process.env.S3_BUCKET_NAME || 'dubhacks25-bucket',
